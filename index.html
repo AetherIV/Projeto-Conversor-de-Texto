@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de textos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Conversor de textos</h1>
+    </header>
+
+    <form>
+        <input type="text" id="textInput">
+        <button type="button" id="convertBtn" onclick="convert()">Converter</button><br>
+
+        <input type="radio" id="convertUpperCase" name="convertRadio">
+        <label>Todas Letras Maiúsculas</label><br>
+
+        <input type="radio" id="convertLowerCase" name="convertRadio">
+        <label>Todas Letras Minúsculas</label><br>
+
+        <input type="radio" id="clearSpaces" name="convertRadio">
+        <label>Remover Espaços</label><br>
+
+        <input type="radio" id="clearSymbols" name="convertRadio">
+        <label>Remover Símbolos</label><br><br>
+
+        <h2>Texto Convertido:</h2>
+        <p id="outputText"></p><br>
+        
+    </form>
+    <div id="copyContainer"">
+        <button type="button" id="copyBtn" onclick="copyText()">Copiar Texto</button><br>
+        <p id="result"></p>
+    </div>
+
+    <footer>
+        <p>Desenvolvido por Rafael Romera</p>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>
