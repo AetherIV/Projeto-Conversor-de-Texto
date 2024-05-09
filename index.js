@@ -10,7 +10,6 @@ function convert() {
     const input = document.getElementById("textInput").value;
     const result = document.getElementById("result");
 
-    // Verifica se o campo de entrada está vazio
     if (!input.trim()) {
         result.textContent = "Favor digitar algo na caixa de texto";
         showNotification();
@@ -22,7 +21,6 @@ function convert() {
     const toggleRemoveSpaces = document.getElementById("toggleRemoveSpaces").checked;
     const toggleRemoveSymbols = document.getElementById("toggleRemoveSymbols").checked;
 
-    // Verifica se nenhum tipo de conversão foi selecionado
     if (!toggleUpperCase && !toggleLowerCase && !toggleRemoveSpaces && !toggleRemoveSymbols) {
         result.textContent = "Favor selecione pelo menos 1 tipo de conversão";
         showNotification();
@@ -31,7 +29,6 @@ function convert() {
 
     let modifiedText = input;
 
-    // Aplicar transformações conforme selecionado
     if (toggleUpperCase) {
         modifiedText = modifiedText.toUpperCase();
     } else if (toggleLowerCase) {
@@ -47,17 +44,16 @@ function convert() {
     document.getElementById("outputText").textContent = modifiedText;
 }
 
-// Função para mostrar a notificação flutuante
 function showNotification() {
     const result = document.getElementById("result");
-    result.style.opacity = 1; // Torna a notificação visível
+    result.style.opacity = 1;
 
     setTimeout(() => {
-        result.style.opacity = 0; // Começa o fade out
+        result.style.opacity = 0;
         setTimeout(() => {
-            result.textContent = ""; // Limpa o texto após o fade out
-        }, 500); // Espera o fade out terminar
-    }, 3000); // 3000 milissegundos = 3 segundos antes de começar o fade out
+            result.textContent = "";
+        }, 500);
+    }, 3000);
 }
 
 
@@ -66,16 +62,50 @@ function copyText() {
     navigator.clipboard.writeText(outputText);
     const result = document.getElementById("result");
     result.textContent = "Texto Copiado!";
-    result.style.opacity = 1; // Torna a notificação visível
+    result.style.opacity = 1;
 
     setTimeout(() => {
-        result.style.opacity = 0; // Começa o fade out
+        result.style.opacity = 0;
         setTimeout(() => {
-            result.textContent = ""; // Limpa o texto após o fade out
-        }, 500); // Espera o fade out terminar
-    }, 3000); // 3000 milissegundos = 3 segundos antes de começar o fade out
+            result.textContent = "";
+        }, 500);
+    }, 3000);
 }
 
 document.getElementById('theme-switch').addEventListener('change', function() {
     document.body.classList.toggle('dark-theme');
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const textInput = document.getElementById('textInput');
+
+    const adjustHeight = () => {
+        // Resetar a altura para calcular corretamente
+        textInput.style.height = 'auto';
+
+        // Ajustar a altura baseando-se no scrollHeight
+        textInput.style.height = textInput.scrollHeight + 'px';
+    };
+
+    // Adicionar os eventos de 'input' para ajustar a altura
+    textInput.addEventListener('input', adjustHeight);
+
+    // Chamar uma vez para ajustar no carregamento inicial
+    adjustHeight();
+});
+
+function clearText(){
+    const textInput = document.getElementById("textInput");
+    const outputText = document.getElementById("outputText");
+    const toggleUpperCase = document.getElementById("toggleUpperCase");
+    const toggleLowerCase = document.getElementById("toggleLowerCase");
+    const toggleRemoveSpaces = document.getElementById("toggleRemoveSpaces");
+    const toggleRemoveSymbols = document.getElementById("toggleRemoveSymbols");
+
+    if (textInput) textInput.value = "";
+    if (outputText) outputText.textContent = "";
+    if (toggleUpperCase) toggleUpperCase.checked = false;
+    if (toggleLowerCase) toggleLowerCase.checked = false;
+    if (toggleRemoveSpaces) toggleRemoveSpaces.checked = false;
+    if (toggleRemoveSymbols) toggleRemoveSymbols.checked = false;
+}
