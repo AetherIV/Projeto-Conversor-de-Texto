@@ -33,9 +33,10 @@ h1 {
     padding: 10px;
     box-sizing: border-box;
     resize: none;
-    background-color: #ffffff00;
+    background-color: #201e1e79;
     box-shadow: 2px 3px 7px hsla(0, 0%, 98%, 0.479);
     border: 1px solid;
+    color: white;
 }
 
 
