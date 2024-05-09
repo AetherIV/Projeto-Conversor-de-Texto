@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     background-color: hsl(0, 0%, 7%);
@@ -10,8 +14,6 @@ header {
     display: block;
     padding: 10px 10px;
     box-shadow: 3px 3px 5px hsl(0, 0%, 0%);
-    width: auto;
-    height: auto;
     padding: 2px;
     box-sizing: border-box;
     max-height: 120px;
@@ -24,24 +26,31 @@ h1 {
 }
 
 #textInput {
-    width: 100%; 
+    display: block;
+    width: 100%;
     min-height: 50px;
-    background-color: hsla(0, 0%, 95%, 0.103);
-    font-size: 15px;
-    border: 1px solid hsl(0, 0%, 0%);
+    overflow: hidden;
     padding: 10px;
     box-sizing: border-box;
+    resize: none;
+    background-color: #ffffff00;
+    box-shadow: 2px 3px 7px hsla(0, 0%, 98%, 0.479);
+    border: 1px solid;
 }
+
 
 #outputText {
     font-family: Arial, Helvetica, sans-serif;
     white-space: pre-wrap;
     word-wrap: break-word;
-    background-color: hsla(0, 0%, 100%, 0.569);
+    background-color: hsla(0, 0%, 65%, 0.658);
     box-shadow: 0px 0px 7px rgb(255, 255, 255);
     border-radius: 5px;
     color: black;
     text-align: center;
+    min-height: 40px;
+    padding: 15px;
+    max-width: 100%;
 }
 
 h2 {
@@ -70,7 +79,7 @@ footer {
     text-align: left;
     width: auto;
     height: auto;
-    background-color: #ffffff21; /* Aqui define a cor do fundo da div */
+    background-color: #ffffff21;
     padding: 10px;
     box-shadow: 3px 4px 6px black;
     border-radius: 5px;
@@ -80,21 +89,21 @@ footer {
 .checkboxes {
     vertical-align: middle;
     cursor: pointer;
-    margin-right: 8px; /* Distância entre o botão e o texto */
+    margin-right: 8px;
 }
 
 #buttonContainer label {
-    vertical-align: middle; /* Alinha os rótulos com os botões */
-    display: inline-flex; /* Mantém rótulo na mesma linha que o botão */
-    align-items: center; /* Alinha verticalmente texto e checkbox */
-    margin-right: 20px; /* Espaço entre cada grupo de botão e texto */
+    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 20px;
 }
 
 #buttonContainer input {
-    display: inline-block; /* Exibe na mesma linha */
+    display: inline-block;
 }
 
-#convertBtn, #copyBtn {
+#convertBtn, #copyBtn, #clearBtn {
     font-size: 20px;
     border-radius: 5px;
     cursor: pointer;
@@ -104,7 +113,11 @@ footer {
     text-align: center;
 }
 
-#convertBtn:hover, #copyBtn:hover {
+#convertBtn, #clearBtn{
+    margin: 5px;
+}
+
+#convertBtn:hover, #copyBtn:hover, #clearBtn:hover {
     background-color: hsla(0, 0%, 61%, 0.993);
 }
 
@@ -112,13 +125,13 @@ footer {
     position: fixed;
     top: 20px;
     right: 20px;
-    background-color: hsla(0, 3%, 20%, 0.589);
+    background-color: hsl(0, 1%, 30%);
     padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(248, 248, 248, 0.1);
     transition: opacity 0.5s ease-in-out;
-    opacity: 0; /* Inicialmente invisível */
-    pointer-events: none; /* Impede interação enquanto invisível */
+    opacity: 0;
+    pointer-events: none;
 }
 
 #inputContainer {
@@ -130,8 +143,8 @@ footer {
 .switch {
     position: relative;
     display: inline-block;
-    width: 40px; /* Tamanho reduzido */
-    height: 22px; /* Tamanho reduzido */
+    width: 40px;
+    height: 22px;
     transform: translate(1600%, -500%);
 }
 
@@ -151,16 +164,16 @@ footer {
     bottom: 0;
     background-color: #ccc;
     transition: .4s;
-    border-radius: 22px; /* Ajustado para novo tamanho */
+    border-radius: 22px;
 }
 
 .slider:before {
     position: absolute;
     content: "";
-    height: 18px; /* Ajustado para novo tamanho */
-    width: 18px; /* Ajustado para novo tamanho */
-    left: 2px; /* Ajustado para novo tamanho */
-    bottom: 2px; /* Ajustado para novo tamanho */
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 2px;
     background-color: white;
     transition: .4s;
     border-radius: 50%;
@@ -181,17 +194,61 @@ body{
 
 .dark-theme {
     background-color: #161616;
-    color: white
+    color: white;
 }
 
-
+/* Corrigindo a posição do botão quando ativado */
 input:checked + .slider:before {
-    transform: translateX(18px); /* Ajustado para novo tamanho */
+    transform: translateX(18px);
 }
 
 #theme-switch-label {
     text-align: center;
     font-size: 14px;
-    margin-top: 5px; /* Espaço entre o switch e o label */
+    margin-top: 5px;
     transform: translate(47%, -650%);
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Media query para telas de dispositivos móveis */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 5px;
+        max-height: unset;
+    }
+
+    h1 {
+        font-size: 24px; /* Tamanho de fonte reduzido para telas menores */
+    }
+
+    #textInput, #outputText, #buttonContainer {
+        width: 90%; /* Aumentar a largura para aproveitar melhor o espaço horizontal */
+        margin: auto;
+    }
+
+    footer {
+        text-align: center; /* Centralizar o texto para melhor visualização em telas pequenas */
+    }
+
+    .switch {
+        transform: scale(0.8); /* Reduzir o tamanho do switch para se adequar a telas menores */
+    }
+
+    #theme-switch-label {
+        transform: translate(0%, 0%); /* Ajustar a posição para não sobrepor outros elementos */
+    }
+
+    #result {
+        position: absolute;
+        width: 90%; /* Ajustar a largura para se adequar à tela */
+        top: 10px; /* Ajustar a posição para melhor visibilidade */
+        left: 5%; /* Centralizar horizontalmente */
+    }
 }

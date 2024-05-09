@@ -15,7 +15,8 @@
             <input type="checkbox" id="theme-switch">
             <span class="slider"></span>
         </label>
-        <p id="theme-switch-label">Modo Escuro</p> <!-- Label para o switch -->
+        <p id="theme-switch-label">Modo Escuro</p>
+        <br><hr>
         
 
     </header>
@@ -23,13 +24,17 @@
     <form>
 
         <div id="inputContainer">
-            <textarea id="textInput" placeholder="Digite o texto aqui"></textarea>
-            <button type="button" id="convertBtn" onclick="convert()">Converter</button><br><br>
+            <textarea id="textInput" placeholder="Digite o texto aqui"></textarea><br>
+            <button type="button" id="convertBtn" onclick="convert()">Converter</button>
+            <button type="button" id="clearBtn" onclick="clearText()">Limpar</button><br><br>
+            
         </div>
 
         <div id="buttonContainer">
     
             <form>
+                
+
                 <input type="checkbox" id="toggleUpperCase" name="convertOption" onclick="checkExclusivity(this, 'toggleLowerCase')"> Todas Letras Maiúsculas <br>
 
                 <input type="checkbox" id="toggleLowerCase" name="convertOption" onclick="checkExclusivity(this, 'toggleUpperCase')"> Todas Letras Minúsculas <br>
