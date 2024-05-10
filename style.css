@@ -10,10 +10,9 @@ body {
 
 header {
     text-align: center;
-    margin-bottom: 40px;
-    background-color: hsl(207, 90%, 54%); /* Azul mais intenso */
+    background-color: hsla(207, 96%, 48%, 0.651); /* Azul mais intenso */
     display: block;
-    padding: 10px;
+    padding: 1px;
     box-shadow: 3px 3px 5px hsl(207, 26%, 17%);
     max-height: 120px;
 }
@@ -27,24 +26,26 @@ h1 {
 #textInput {
     display: block;
     width: 100%;
-    min-height: 50px;
+    min-height: 100px;
     overflow: hidden;
     padding: 10px;
     box-sizing: border-box;
     resize: none;
-    background-color: hsla(207, 54%, 88%, 0.63);
-    box-shadow: 2px 3px 7px hsl(207, 26%, 17%);
+    background-color: hsla(207, 54%, 88%, 0.534);
+    box-shadow: 0px 0px 7px hsl(207, 90%, 94%);
     border: 1px solid;
     color: hsl(207, 90%, 5%);
+    margin-top: 50px;
+    border-radius: 10px;
 }
 
 #outputText {
     font-family: Arial, Helvetica, sans-serif;
     white-space: pre-wrap;
     word-wrap: break-word;
-    background-color: hsla(207, 53%, 76%, 0.596);
+    background-color: hsla(207, 74%, 72%, 0.658);
     box-shadow: 0px 0px 7px hsl(207, 90%, 94%);
-    border-radius: 5px;
+    border-radius: 10px;
     text-align: center;
     min-height: 40px;
     padding: 15px;
@@ -52,7 +53,7 @@ h1 {
 }
 
 h2 {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 30px;
     text-align: center;
 }
@@ -65,11 +66,12 @@ h2 {
     text-align: left;
     width: auto;
     height: auto;
-    background-color: hsla(207, 53%, 76%, 0.575);
+    background-color: hsla(207, 74%, 72%, 0.658);
     padding: 10px;
-    box-shadow: 3px 4px 6px hsl(207, 26%, 17%);
-    border-radius: 5px;
+    box-shadow: 0px 0px 7px hsl(207, 90%, 94%);
+    border-radius: 10px;
     color: hsl(210, 10%, 25%);
+    color: black;
 }
 
 .checkboxes {
@@ -111,7 +113,7 @@ h2 {
     position: fixed;
     top: 20px;
     right: 20px;
-    background-color: hsl(206, 56%, 53%);
+    background-color: hsla(206, 56%, 53%, 0.562);
     padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -131,7 +133,8 @@ h2 {
     display: inline-block;
     width: 40px;
     height: 22px;
-    transform: translate(1600%, -500%);
+    bottom: 110px;
+    left: 47%;
 }
 
 .switch input {
@@ -182,6 +185,7 @@ input:checked + .slider:before {
 }
 
 #theme-switch-label {
+    font-family: Helvetica, sans-serif;
     text-align: center;
     font-size: 14px;
     margin-top: 5px;
@@ -233,13 +237,16 @@ body, html {
 
 footer {
     bottom: 0;
-    margin-top: 40px;
     text-align: end;
     font-size: 10px;
     color: hsl(210, 3%, 13%);
-    background-color: hsl(207, 90%, 54%);
+    background-color: hsla(207, 90%, 54%, 0.658);
     margin-bottom: 0%;
     padding: 6px 5px;
     box-shadow: 3px 3px 5px hsl(207, 26%, 17%);
     height: 60px;
+}
+
+#textInput::placeholder{
+    color: black
 }
