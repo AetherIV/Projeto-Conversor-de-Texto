@@ -20,8 +20,9 @@ function convert() {
     const toggleLowerCase = document.getElementById("toggleLowerCase").checked;
     const toggleRemoveSpaces = document.getElementById("toggleRemoveSpaces").checked;
     const toggleRemoveSymbols = document.getElementById("toggleRemoveSymbols").checked;
+    const toggleLineBreak = document.getElementById("toggleLineBreak");
 
-    if (!toggleUpperCase && !toggleLowerCase && !toggleRemoveSpaces && !toggleRemoveSymbols) {
+    if (!toggleUpperCase && !toggleLowerCase && !toggleRemoveSpaces && !toggleRemoveSymbols && !toggleLineBreak) {
         result.textContent = "Favor selecione pelo menos 1 tipo de conversão";
         showNotification();
         return;
@@ -38,7 +39,10 @@ function convert() {
         modifiedText = modifiedText.replace(/\s/g, "");
     }
     if (toggleRemoveSymbols) {
-        modifiedText = modifiedText.replace(/[^a-zA-Z0-9\s]/g, "");
+        modifiedText = modifiedText.replace(/[@#$\/|.,`'"&¨%+=-_´+-]/g, "");
+    }
+    if(toggleLineBreak){
+        modifiedText = modifiedText.replace(/\n/g, " ");
     }
 
     document.getElementById("outputText").textContent = modifiedText;
