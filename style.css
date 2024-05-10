@@ -27,7 +27,7 @@ h1 {
 #textInput {
     display: block;
     width: 100%;
-    min-height: 100px;
+    min-height: 50px;
     overflow: hidden;
     padding: 10px;
     box-sizing: border-box;
