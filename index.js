@@ -40,7 +40,7 @@ function convert() {
     }
     if (toggleRemoveSymbols) {
         modifiedText = modifiedText.replace(/[@#$\/|.,`'"&¨%+=_´+\\-]/g, "");
-    }    
+    }
     if(toggleLineBreak){
         modifiedText = modifiedText.replace(/\n/g, " ");
     }
