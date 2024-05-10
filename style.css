@@ -4,18 +4,17 @@
 
 body {
     margin: 0;
-    background-color: hsl(0, 0%, 7%);
+    background: hsl(210, 20%, 98%); /* Fundo mais claro para tema claro */
+    color: hsl(210, 10%, 25%); /* Texto mais escuro para tema claro */
 }
 
 header {
     text-align: center;
     margin-bottom: 40px;
-    background-color: hsla(0, 0%, 62%, 0.205);
+    background-color: hsl(207, 90%, 54%); /* Azul mais intenso */
     display: block;
-    padding: 10px 10px;
-    box-shadow: 3px 3px 5px hsl(0, 0%, 0%);
-    padding: 2px;
-    box-sizing: border-box;
+    padding: 10px;
+    box-shadow: 3px 3px 5px hsl(207, 26%, 17%);
     max-height: 120px;
 }
 
@@ -28,26 +27,24 @@ h1 {
 #textInput {
     display: block;
     width: 100%;
-    min-height: 50px;
+    min-height: 100px;
     overflow: hidden;
     padding: 10px;
     box-sizing: border-box;
     resize: none;
-    background-color: #201e1e79;
-    box-shadow: 2px 3px 7px hsla(0, 0%, 98%, 0.479);
+    background-color: hsla(207, 54%, 88%, 0.63);
+    box-shadow: 2px 3px 7px hsl(207, 26%, 17%);
     border: 1px solid;
-    color: white;
+    color: hsl(207, 90%, 5%);
 }
-
 
 #outputText {
     font-family: Arial, Helvetica, sans-serif;
     white-space: pre-wrap;
     word-wrap: break-word;
-    background-color: hsla(0, 0%, 65%, 0.658);
-    box-shadow: 0px 0px 7px rgb(255, 255, 255);
+    background-color: hsla(207, 53%, 76%, 0.596);
+    box-shadow: 0px 0px 7px hsl(207, 90%, 94%);
     border-radius: 5px;
-    color: black;
     text-align: center;
     min-height: 40px;
     padding: 15px;
@@ -64,27 +61,15 @@ h2 {
     text-align: center;
 }
 
-footer {
-    margin-top: 40px;
-    text-align: end;
-    font-size: 10px;
-    color: hsl(0, 0%, 0%);
-    background-color: hsla(0, 0%, 100%, 0.473);
-    margin-bottom: 0%;
-    padding: 6px 5px;
-    box-shadow: 3px 3px 5px hsl(0, 0%, 0%);
-    height: 60px;
-}
-
 #buttonContainer {
     text-align: left;
     width: auto;
     height: auto;
-    background-color: #ffffff21;
+    background-color: hsla(207, 53%, 76%, 0.575);
     padding: 10px;
-    box-shadow: 3px 4px 6px black;
+    box-shadow: 3px 4px 6px hsl(207, 26%, 17%);
     border-radius: 5px;
-    color: black;
+    color: hsl(210, 10%, 25%);
 }
 
 .checkboxes {
@@ -106,30 +91,30 @@ footer {
 
 #convertBtn, #copyBtn, #clearBtn {
     font-size: 20px;
-    border-radius: 5px;
+    border-radius: 40px;
     cursor: pointer;
-    background-color: hsla(0, 0%, 75%, 0.993);
+    background-color: hsl(207, 90%, 54%);
     margin-top: 30px;
     margin-bottom: 30px;
     text-align: center;
 }
 
-#convertBtn, #clearBtn{
+#convertBtn, #clearBtn {
     margin: 5px;
 }
 
 #convertBtn:hover, #copyBtn:hover, #clearBtn:hover {
-    background-color: hsla(0, 0%, 61%, 0.993);
+    background-color: hsl(207, 80%, 44%);
 }
 
 #result {
     position: fixed;
     top: 20px;
     right: 20px;
-    background-color: hsl(0, 1%, 30%);
+    background-color: hsl(206, 56%, 53%);
     padding: 10px 20px;
     border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(248, 248, 248, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: opacity 0.5s ease-in-out;
     opacity: 0;
     pointer-events: none;
@@ -148,7 +133,6 @@ footer {
     height: 22px;
     transform: translate(1600%, -500%);
 }
-
 
 .switch input {
     opacity: 0;
@@ -188,17 +172,11 @@ input:checked + .slider:before {
     transform: translateX(26px);
 }
 
-body{
-    background-color: hsl(0, 0%, 100%);
-    color: black
-}
-
 .dark-theme {
-    background-color: #161616;
-    color: white;
+    background: hsl(207, 30%, 10%);
+    color: hsl(207, 90%, 94%);
 }
 
-/* Corrigindo a posição do botão quando ativado */
 input:checked + .slider:before {
     transform: translateX(18px);
 }
@@ -217,7 +195,6 @@ body, html {
     overflow-x: hidden;
 }
 
-/* Media query para telas de dispositivos móveis */
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -226,30 +203,43 @@ body, html {
     }
 
     h1 {
-        font-size: 24px; /* Tamanho de fonte reduzido para telas menores */
+        font-size: 24px;
     }
 
     #textInput, #outputText, #buttonContainer {
-        width: 90%; /* Aumentar a largura para aproveitar melhor o espaço horizontal */
+        width: 90%;
         margin: auto;
     }
 
     footer {
-        text-align: center; /* Centralizar o texto para melhor visualização em telas pequenas */
+        text-align: center;
     }
 
     .switch {
-        transform: scale(0.8); /* Reduzir o tamanho do switch para se adequar a telas menores */
+        transform: scale(0.8);
     }
 
     #theme-switch-label {
-        transform: translate(0%, 0%); /* Ajustar a posição para não sobrepor outros elementos */
+        transform: translate(0%, 0%);
     }
 
     #result {
         position: absolute;
-        width: 90%; /* Ajustar a largura para se adequar à tela */
-        top: 10px; /* Ajustar a posição para melhor visibilidade */
-        left: 5%; /* Centralizar horizontalmente */
+        width: 90%;
+        top: 10px;
+        left: 5%;
     }
+}
+
+footer {
+    bottom: 0;
+    margin-top: 40px;
+    text-align: end;
+    font-size: 10px;
+    color: hsl(210, 3%, 13%);
+    background-color: hsl(207, 90%, 54%);
+    margin-bottom: 0%;
+    padding: 6px 5px;
+    box-shadow: 3px 3px 5px hsl(207, 26%, 17%);
+    height: 60px;
 }
