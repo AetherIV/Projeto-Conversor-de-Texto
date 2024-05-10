@@ -69,21 +69,28 @@ function copyText() {
     if(outputText.textContent == ""){
         result.textContent = "Sem texto para copiar";
         result.style.opacity = 1;
+        setTimeout(() => {
+            result.style.opacity = 0;
+            setTimeout(() => {
+                result.textContent = "";
+            }, 500);
+        }, 3000);
+        
         return 0;
     }
 
     else{
         navigator.clipboard.writeText(outputText);
         result.textContent = "Texto Copiado!";
-        result.style.opacity = 1;
-    }
-    
-    setTimeout(() => {
-        result.style.opacity = 0;
+        result.style.opacity = 1;~
+
         setTimeout(() => {
-            result.textContent = "";
-        }, 500);
-    }, 3000);
+            result.style.opacity = 0;
+            setTimeout(() => {
+                result.textContent = "";
+            }, 500);
+        }, 3000);
+    }
 }
 
 document.getElementById('theme-switch').addEventListener('change', function() {
