@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversor de textos</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="images\favicon.ico" type="image/x-icon">
+
 </head>
 <body>
     <header>
@@ -16,7 +17,7 @@
             <span class="slider"></span>
         </label>
         <p id="theme-switch-label">Modo Escuro</p>
-        <br><hr>
+        <br>
         
 
     </header>
@@ -33,7 +34,6 @@
         <div id="buttonContainer">
     
             <form>
-                
 
                 <input type="checkbox" id="toggleUpperCase" name="convertOption" onclick="checkExclusivity(this, 'toggleLowerCase')"> Todas Letras Maiúsculas <br>
 
@@ -42,6 +42,8 @@
                 <input type="checkbox" id="toggleRemoveSpaces" name="convertOption"> Remover Espaços <br>
 
                 <input type="checkbox" id="toggleRemoveSymbols" name="convertOption"> Remover Símbolos <br>
+
+                <input type="checkbox" id="toggleLineBreak" name="convertOption"> Remover Quebra de Linha
 
             </form>
             
@@ -57,7 +59,7 @@
     </form>   
    
     <footer>
-        <p>Desenvolvido por Rafael Romera</p>
+         <p>Desenvolvido por Rafael Romera</p>
     </footer>
     <script src="index.js"></script>
 </body>
