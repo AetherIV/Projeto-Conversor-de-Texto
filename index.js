@@ -62,17 +62,17 @@ function showNotification() {
 
 
 function copyText() {
-    const textInput = document.getElementById("textInput");
-    const outputText = document.getElementById('outputText');
-    const result = document.getElementById("result");
+    const outputText = document.getElementById('outputText').textContent;
+    const copyResult = document.getElementById("copyResult");
     
-    if(outputText.textContent == ""){
-        result.textContent = "Sem texto para copiar";
-        result.style.opacity = 1;
+    if(outputText.textContent == null){
+        copyResult.textContent = "Sem texto para copiar";
+        copyResult.style.opacity = 1;
+        console.log("Sem texto para copiar");
         setTimeout(() => {
-            result.style.opacity = 0;
+            copyResult.style.opacity = 0;
             setTimeout(() => {
-                result.textContent = "";
+                copyResult.textContent = "";
             }, 500);
         }, 3000);
         
@@ -81,13 +81,14 @@ function copyText() {
 
     else{
         navigator.clipboard.writeText(outputText);
-        result.textContent = "Texto Copiado!";
-        result.style.opacity = 1;~
+        copyResult.textContent = "Texto Copiado!";
+        console.log("Texto copiado");
+        copyResult.style.opacity = 1;~
 
         setTimeout(() => {
-            result.style.opacity = 0;
+            copyResult.style.opacity = 0;
             setTimeout(() => {
-                result.textContent = "";
+                copyResult.textContent = "";
             }, 500);
         }, 3000);
     }
