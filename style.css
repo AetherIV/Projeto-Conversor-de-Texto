@@ -4,13 +4,13 @@
 
 body {
     margin: 0;
-    background: hsl(210, 20%, 98%); /* Fundo mais claro para tema claro */
-    color: hsl(210, 10%, 25%); /* Texto mais escuro para tema claro */
+    background: hsl(210, 20%, 98%);
+    color: hsl(210, 10%, 25%);
 }
 
 header {
     text-align: center;
-    background-color: hsla(207, 96%, 48%, 0.651); /* Azul mais intenso */
+    background-color: hsla(207, 96%, 48%, 0.651);
     display: block;
     padding: 1px;
     box-shadow: 3px 3px 5px hsl(207, 26%, 17%);
@@ -112,6 +112,19 @@ h2 {
 #result {
     position: fixed;
     top: 20px;
+    right: 20px;
+    background-color: hsla(206, 56%, 53%, 0.562);
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#copyResult {
+    position: fixed;
+    top: 70px;
     right: 20px;
     background-color: hsla(206, 56%, 53%, 0.562);
     padding: 10px 20px;
@@ -231,6 +244,13 @@ body, html {
         position: absolute;
         width: 90%;
         top: 10px;
+        left: 5%;
+    }
+
+    #copyResult {
+        position: absolute;
+        width: 90%;
+        top: 80px;
         left: 5%;
     }
 }
