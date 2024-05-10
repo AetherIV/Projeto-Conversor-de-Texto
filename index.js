@@ -20,7 +20,7 @@ function convert() {
     const toggleLowerCase = document.getElementById("toggleLowerCase").checked;
     const toggleRemoveSpaces = document.getElementById("toggleRemoveSpaces").checked;
     const toggleRemoveSymbols = document.getElementById("toggleRemoveSymbols").checked;
-    const toggleLineBreak = document.getElementById("toggleLineBreak");
+    const toggleLineBreak = document.getElementById("toggleLineBreak").checked;
 
     if (!toggleUpperCase && !toggleLowerCase && !toggleRemoveSpaces && !toggleRemoveSymbols && !toggleLineBreak) {
         result.textContent = "Favor selecione pelo menos 1 tipo de conversão";
@@ -40,7 +40,7 @@ function convert() {
     }
     if (toggleRemoveSymbols) {
         modifiedText = modifiedText.replace(/[@#$\/|.,`'"&¨%+=_´+\\-]/g, "");
-    }
+    }    
     if(toggleLineBreak){
         modifiedText = modifiedText.replace(/\n/g, " ");
     }
@@ -62,12 +62,22 @@ function showNotification() {
 
 
 function copyText() {
-    const outputText = document.getElementById('outputText').textContent;
-    navigator.clipboard.writeText(outputText);
+    const textInput = document.getElementById("textInput");
+    const outputText = document.getElementById('outputText');
     const result = document.getElementById("result");
-    result.textContent = "Texto Copiado!";
-    result.style.opacity = 1;
+    
+    if(outputText.textContent == ""){
+        result.textContent = "Sem texto para copiar";
+        result.style.opacity = 1;
+        return 0;
+    }
 
+    else{
+        navigator.clipboard.writeText(outputText);
+        result.textContent = "Texto Copiado!";
+        result.style.opacity = 1;
+    }
+    
     setTimeout(() => {
         result.style.opacity = 0;
         setTimeout(() => {
@@ -84,17 +94,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const textInput = document.getElementById('textInput');
 
     const adjustHeight = () => {
-        // Resetar a altura para calcular corretamente
         textInput.style.height = 'auto';
 
-        // Ajustar a altura baseando-se no scrollHeight
         textInput.style.height = textInput.scrollHeight + 'px';
     };
 
-    // Adicionar os eventos de 'input' para ajustar a altura
     textInput.addEventListener('input', adjustHeight);
 
-    // Chamar uma vez para ajustar no carregamento inicial
     adjustHeight();
 });
 
@@ -112,4 +118,5 @@ function clearText(){
     if (toggleLowerCase) toggleLowerCase.checked = false;
     if (toggleRemoveSpaces) toggleRemoveSpaces.checked = false;
     if (toggleRemoveSymbols) toggleRemoveSymbols.checked = false;
+    if (toggleLineBreak) toggleLineBreak.checked = false;
 }
