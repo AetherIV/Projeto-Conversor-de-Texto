@@ -27,6 +27,7 @@ header {
     padding: 1px;
     box-shadow: 3px 3px 5px hsl(207, 26%, 17%);
     max-height: 120px;
+    position: relative;
 }
 
 h1 {
@@ -177,10 +178,10 @@ h2 {
 }
 
 .switch {
-    position: fixed;
+    position: absolute;
     top: 5px;  
-    right: 30px; 
-    display: inline-block;
+    right: 20px; 
+    display: block;
     width: 40px;
     height: 22px;
     z-index: 1000;
