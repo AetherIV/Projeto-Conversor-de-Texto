@@ -65,10 +65,10 @@ function copyText() {
     const outputText = document.getElementById('outputText').textContent;
     const copyResult = document.getElementById("copyResult");
     
-    if(outputText.textContent == null){
+    if(outputText === ""){
         copyResult.textContent = "Sem texto para copiar";
         copyResult.style.opacity = 1;
-        console.log("Sem texto para copiar");
+
         setTimeout(() => {
             copyResult.style.opacity = 0;
             setTimeout(() => {
@@ -82,7 +82,6 @@ function copyText() {
     else{
         navigator.clipboard.writeText(outputText);
         copyResult.textContent = "Texto Copiado!";
-        console.log("Texto copiado");
         copyResult.style.opacity = 1;~
 
         setTimeout(() => {
