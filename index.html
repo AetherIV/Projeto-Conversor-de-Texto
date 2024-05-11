@@ -6,7 +6,7 @@
     <title>Conversor de textos</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images\favicon.ico" type="image/x-icon">
-
+    <script src="https://kit.fontawesome.com/446451be97.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -27,7 +27,9 @@
         <div id="inputContainer">
             <textarea id="textInput" placeholder="Digite o texto aqui"></textarea><br>
             <button type="button" id="convertBtn" onclick="convert()">Converter</button>
-            <button type="button" id="clearBtn" onclick="clearText()">Limpar</button><br><br>
+            <i class="fa-solid fa-repeat fa-spin fa-sm" style="color: #000000;"></i>
+            <button type="button" id="clearBtn" onclick="clearText()">Limpar</button>
+            <i class="fa-solid fa-trash"></i><br><br>
             
         </div>
 
@@ -53,7 +55,8 @@
         <div id="outputText"></div>
 
         <div id="copyContainer">
-            <button type="button" id="copyBtn" onclick="copyText()">Copiar</button><br>
+            <button type="button" id="copyBtn" onclick="copyText()">Copiar</button>
+            <i class="fa-solid fa-copy"></i><br>
             <p id="result"></p>
             <p id="copyResult"></p>
         </div>
@@ -62,6 +65,8 @@
     <footer>
          <p>Desenvolvido por Rafael Romera</p>
     </footer>
+
+    
     <script src="index.js"></script>
 </body>
 </html>
