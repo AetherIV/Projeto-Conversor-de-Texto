@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +17,7 @@
             <input type="checkbox" id="theme-switch">
             <span class="slider"></span>
         </label>
-        <p id="theme-switch-label">Modo Escuro</p>
-        <br>
         
-
     </header>
 
     <form>
@@ -51,22 +49,25 @@
             
         </div>
 
-        <h2>Texto Convertido:</h2>
-        <div id="outputText"></div>
-
-        <div id="copyContainer">
-            <button type="button" id="copyBtn" onclick="copyText()">Copiar</button>
-            <i class="fa-solid fa-copy"></i><br>
-            <p id="result"></p>
-            <p id="copyResult"></p>
-        </div>
     </form>   
-   
+
+    <h2>Texto Convertido:</h2>
+    <p id="outputText" aria-readonly="true" aria-live="assertive">
+
+    </p>
+    <script></script>
+
+    <div id="copyContainer">
+        <button type="button" id="copyBtn" onclick="copyText()">Copiar</button>
+        <i class="fa-solid fa-copy"></i><br>
+        <p id="result"></p>
+        <p id="copyResult"></p>
+    </div>
+
     <footer>
          <p>Desenvolvido por Rafael Romera</p>
     </footer>
 
-    
     <script src="index.js"></script>
 </body>
 </html>
