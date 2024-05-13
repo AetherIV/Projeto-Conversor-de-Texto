@@ -73,7 +73,7 @@ h2 {
 #buttonContainer {
     font-size: 17px;
     text-align: left;
-    max-width: 15%;
+    width: 20%;
     height: auto;
     background-color: hsla(207, 74%, 72%, 0.658);
     padding: 10px;
