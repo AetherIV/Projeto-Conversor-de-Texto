@@ -45,7 +45,8 @@ function convert() {
         modifiedText = modifiedText.replace(/\n/g, " ");
     }
 
-    document.getElementById("outputText").textContent = modifiedText;
+    document.getElementById(`outputText`).innerText = modifiedText; //Template literal to help with placeholders
+
 }
 
 function showNotification() {
@@ -62,9 +63,10 @@ function showNotification() {
 
 
 function copyText() {
-    const outputText = document.getElementById('outputText').textContent;
+
+    const outputText = document.getElementById('outputText').textContent.trim();
     const copyResult = document.getElementById("copyResult");
-    
+
     if(outputText === ""){
         copyResult.textContent = "Sem texto para copiar";
         copyResult.style.opacity = 1;
@@ -78,18 +80,29 @@ function copyText() {
         
         return 0;
     }
+    else {
+        navigator.clipboard.writeText(outputText).then(() => {
+            copyResult.textContent = "Texto Copiado!";
+            copyResult.style.opacity = 1;
 
-    else{
-        navigator.clipboard.writeText(outputText);
-        copyResult.textContent = "Texto Copiado!";
-        copyResult.style.opacity = 1;~
-
-        setTimeout(() => {
-            copyResult.style.opacity = 0;
             setTimeout(() => {
-                copyResult.textContent = "";
-            }, 500);
-        }, 3000);
+                copyResult.style.opacity = 0;
+                setTimeout(() => {
+                    copyResult.textContent = "";
+                }, 500);
+            }, 3000);
+        }, err => {
+            console.error('Failed to copy text: ', err);
+            copyResult.textContent = "Erro ao copiar texto!";
+            copyResult.style.opacity = 1;
+
+            setTimeout(() => {
+                copyResult.style.opacity = 0;
+                setTimeout(() => {
+                    copyResult.textContent = "";
+                }, 500);
+            }, 3000);
+        });
     }
 }
 
@@ -119,7 +132,7 @@ function clearText(){
     const toggleRemoveSpaces = document.getElementById("toggleRemoveSpaces");
     const toggleRemoveSymbols = document.getElementById("toggleRemoveSymbols");
 
-    if (textInput) textInput.value = "";
+    if (textInput) textInput.value = null;
     if (outputText) outputText.textContent = "";
     if (toggleUpperCase) toggleUpperCase.checked = false;
     if (toggleLowerCase) toggleLowerCase.checked = false;
