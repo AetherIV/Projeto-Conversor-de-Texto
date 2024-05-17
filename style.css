@@ -2,12 +2,6 @@
     box-sizing: border-box;
 }
 
-.content {
-    overflow-y: hidden;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
 body, html {
     margin: 0;
     padding: 0;
@@ -18,22 +12,26 @@ body, html {
     background-color: hsla(207, 49%, 89%, 0.425);
 }
 
+.content {
+    overflow-y: hidden;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
 .main-content {
     flex: 1;
     overflow: auto;
 }
 
 header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: hsla(207, 96%, 48%, 0.651);
     box-shadow: 3px 3px 5px hsl(207, 26%, 17%);
+    max-height: 90vh;
 }
 
 h1 {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 50px;
+    font-size: 45px;
     text-align: center;
 }
 
@@ -71,6 +69,7 @@ h2 {
 }
 
 #buttonContainer {
+    display: block;
     font-size: 17px;
     text-align: left;
     width: 20%;
@@ -82,10 +81,9 @@ h2 {
     color: black;
     border: 2px groove black;
     position: sticky;
-    margin-top: 4%;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -30%);
+    transform: translate(-50%);
 }
 
 .checkboxes {
@@ -106,18 +104,6 @@ h2 {
 }
 
 #convertBtn{
-    width: calc(9em - 10px);
-    background-color: hsl(207, 80%, 54%);
-    margin: 5px;
-    text-align: left;
-    padding-left: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-radius: 20px;
-    border: 1px solid;
-}
-
-#clearBtn{
     width: calc(8em - 10px);
     background-color: hsl(207, 80%, 54%);
     margin: 5px;
@@ -129,7 +115,19 @@ h2 {
     border: 1px solid;
 }
 
-#copyBtn {
+#clearBtn{
+    width: calc(7em - 8px);
+    background-color: hsl(207, 80%, 54%);
+    margin: 5px;
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 20px;
+    border: 1px solid;
+}
+
+#copyBtn{
     width: calc(7em - 10px);
     background-color: hsl(207, 80%, 54%);
     margin: 5px;
@@ -146,22 +144,9 @@ h2 {
     cursor: pointer;
 }
 
-#result {
+#result, #copyResult {
     position: fixed;
     top: 20px;
-    right: 20px;
-    background-color: hsla(206, 56%, 53%, 0.562);
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: opacity 0.5s ease-in-out;
-    opacity: 0;
-    pointer-events: none;
-}
-
-#copyResult {
-    position: fixed;
-    top: 60px;
     right: 20px;
     background-color: hsla(206, 56%, 53%, 0.562);
     padding: 10px 20px;
@@ -176,78 +161,6 @@ h2 {
     text-align: center;
     width: auto;
     height: auto;
-}
-
-.switch {
-    position: fixed;
-    top: 5px;  
-    right: 20px; 
-    display: block;
-    width: 40px;
-    height: 22px;
-    z-index: 1000;
-}
-
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
-    border-radius: 22px;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 18px;
-    width: 18px;
-    left: 2px;
-    bottom: 2px;
-    background-color: white;
-    transition: .4s;
-    border-radius: 50%;
-}
-
-input:checked + .slider {
-    background-color: #2196F3;
-}
-
-input:checked + .slider:before {
-    transform: translateX(18px);
-}
-
-.dark-theme {
-    background: hsl(213, 31%, 6%);
-    color: hsl(207, 90%, 94%);
-}
-
-input:checked + .slider:before {
-    transform: translateX(18px);
-}
-
-#theme-switch-label {
-    text-align: center;
-    font-size: 14px;
-    margin-top: 5px;
-    transform: translate(47%, -600%);
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-body, html {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
 }
 
 @media (max-width: 768px) {
@@ -266,18 +179,15 @@ body, html {
         margin: 10px auto;
     }
 
+    #buttonContainer {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+    }
+
     footer {
         text-align: center;
-    }
-
-    .switch {
-        transform: scale(0.8);
-        top: 5px;
-        right: 5px;
-    }
-
-    .switch, .fa-solid { /* Adjust icon sizes and positions */
-        transform: scale(0.8);
     }
 
     #result {
@@ -286,25 +196,10 @@ body, html {
         top: 10px;
         left: 5%;
     }
-
-    #result {
-        position: absolute;
-        width: 90%;
-        top: 20px;
-        left: 5%;
-    }
 }
 
-footer {
-    margin-top: 6vh;
-    padding-right: 5px;
-    text-align: end;
-    font-size: 10px;
-    background-color: hsla(207, 80%, 48%, 0.753);;
-}
-
-#textInput::placeholder{
-    color: black
+#textInput::placeholder {
+    color: black;
 }
 
 .fa-solid.fa-copy {
@@ -312,13 +207,13 @@ footer {
     transform: translateX(-200%);
 }
 
-.fa-solid.fa-repeat{
+.fa-solid.fa-repeat {
     color: #0d0d0e;
-    transform: translateX(-290%);
+    transform: translate(-200%, 10%);
 }
 
-.fa-solid.fa-trash{
+.fa-solid.fa-trash {
     color: #0d0d0e;
     transform: translateX(-270%);
-    font-size: 16px;
+    font-size: 15px;
 }
