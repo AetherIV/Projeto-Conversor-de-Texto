@@ -12,12 +12,6 @@
 <body>
     <header>
         <h1>Conversor de textos</h1>
-        
-        <label class="switch" id="modoEscuro">
-            <input type="checkbox" id="theme-switch">
-            <span class="slider"></span>
-        </label>
-        
     </header>
 
     <form>
@@ -25,7 +19,7 @@
         <div id="inputContainer">
             <textarea id="textInput" placeholder="Digite o texto aqui"></textarea><br>
             <button type="button" id="convertBtn" onclick="convert()">Converter</button>
-            <i class="fa-solid fa-repeat fa-spin fa-sm" style="color: #000000;"></i>
+            <i class="fa-solid fa-repeat" style="color: #000000;"></i>
             <button type="button" id="clearBtn" onclick="clearText()">Limpar</button>
             <i class="fa-solid fa-trash"></i><br><br>
             
@@ -43,7 +37,11 @@
 
                 <input type="checkbox" id="toggleRemoveSymbols" name="convertOption"> Remover Símbolos <br>
 
-                <input type="checkbox" id="toggleLineBreak" name="convertOption"> Remover Quebra de Linha
+                <input type="checkbox" id="toggleLineBreak" name="convertOption"> Remover Quebra de Linha <br>
+
+                <input type="checkbox" id="toggleCNPJ" name="convertOption"> Converte CNPJ <br>
+                
+                <input type="checkbox" id="toggleCPF" name="convertOption"> Converte CPF <br>
 
             </form>
             
@@ -63,10 +61,6 @@
         <p id="result"></p>
         <p id="copyResult"></p>
     </div>
-
-    <footer>
-         <p>Desenvolvido por Rafael Romera</p>
-    </footer>
 
     <script src="index.js"></script>
 </body>
