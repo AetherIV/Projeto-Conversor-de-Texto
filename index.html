@@ -39,9 +39,9 @@
 
                 <input type="checkbox" id="toggleLineBreak" name="convertOption"> Remover Quebra de Linha <br>
 
-                <input type="checkbox" id="toggleCNPJ" name="convertOption"> Converte CNPJ <br>
+                <input type="checkbox" id="toggleCNPJ" name="convertOption" onclick="checkExclusivity(this, 'toggleCPF')"> Converte CNPJ <br>
                 
-                <input type="checkbox" id="toggleCPF" name="convertOption"> Converte CPF <br>
+                <input type="checkbox" id="toggleCPF" name="convertOption" onclick="checkExclusivity(this, 'toggleCNPJ')"> Converte CPF <br>
 
             </form>
             
