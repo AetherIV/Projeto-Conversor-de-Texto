@@ -143,4 +143,6 @@ function clearText(){
     if (toggleRemoveSpaces) toggleRemoveSpaces.checked = false;
     if (toggleRemoveSymbols) toggleRemoveSymbols.checked = false;
     if (toggleLineBreak) toggleLineBreak.checked = false;
+    if (toggleCNPJ) toggleCNPJ.checked = false;
+    if (toggleCPF) toggleCPF.checked = false;
 }
