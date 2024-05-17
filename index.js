@@ -21,8 +21,10 @@ function convert() {
     const toggleRemoveSpaces = document.getElementById("toggleRemoveSpaces").checked;
     const toggleRemoveSymbols = document.getElementById("toggleRemoveSymbols").checked;
     const toggleLineBreak = document.getElementById("toggleLineBreak").checked;
+    const toggleCNPJ = document.getElementById("toggleCNPJ").checked;
+    const toggleCPF = document.getElementById("toggleCPF").checked;
 
-    if (!toggleUpperCase && !toggleLowerCase && !toggleRemoveSpaces && !toggleRemoveSymbols && !toggleLineBreak) {
+    if (!toggleUpperCase && !toggleLowerCase && !toggleRemoveSpaces && !toggleRemoveSymbols && !toggleLineBreak && !toggleCNPJ && !toggleCPF) {
         result.textContent = "Favor selecione pelo menos 1 tipo de conversão";
         showNotification();
         return;
@@ -43,6 +45,12 @@ function convert() {
     }    
     if(toggleLineBreak){
         modifiedText = modifiedText.replace(/\n/g, " ");
+    }
+    if (toggleCNPJ) {
+        modifiedText = modifiedText.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/g, "$1.$2.$3/$4-$5");
+    }
+    if (toggleCPF) {
+        modifiedText = modifiedText.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g, "$1.$2.$3-$4");
     }
 
     document.getElementById(`outputText`).innerText = modifiedText; //Template literal to help with placeholders
@@ -105,10 +113,6 @@ function copyText() {
         });
     }
 }
-
-document.getElementById('theme-switch').addEventListener('change', function() {
-    document.body.classList.toggle('dark-theme');
-});
 
 document.addEventListener('DOMContentLoaded', function() {
     const textInput = document.getElementById('textInput');
