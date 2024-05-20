@@ -41,7 +41,7 @@ function convert() {
         modifiedText = modifiedText.replace(/\s/g, "");
     }
     if (toggleRemoveSymbols) {
-        modifiedText = modifiedText.replace(/[@#$\/|.,`'"&¨%+=_´+\\-]/g, "");
+        modifiedText = modifiedText.replace(/[@#$\/|.,`'"&¨%+=_´+*\\-]/g, "");
     }    
     if(toggleLineBreak){
         modifiedText = modifiedText.replace(/\n/g, " ");
