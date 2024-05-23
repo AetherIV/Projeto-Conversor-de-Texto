@@ -138,11 +138,4 @@ function clearText(){
 
     if (textInput) textInput.value = null;
     if (outputText) outputText.textContent = "";
-    if (toggleUpperCase) toggleUpperCase.checked = false;
-    if (toggleLowerCase) toggleLowerCase.checked = false;
-    if (toggleRemoveSpaces) toggleRemoveSpaces.checked = false;
-    if (toggleRemoveSymbols) toggleRemoveSymbols.checked = false;
-    if (toggleLineBreak) toggleLineBreak.checked = false;
-    if (toggleCNPJ) toggleCNPJ.checked = false;
-    if (toggleCPF) toggleCPF.checked = false;
 }
