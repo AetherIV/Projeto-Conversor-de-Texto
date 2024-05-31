@@ -137,7 +137,7 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-    transform: translateX(calc(20px - 10px + 1vw - 1vw));
+    transform: translateX(calc(20px + 1vw - 10px));
 }
 
 #outputText {
