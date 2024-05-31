@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor De Textos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icon/favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/446451be97.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>Conversor de Textos</h1>
+    </header>
+
+    <textarea name="userInput" id="textInput" placeholder="Digite o texto aqui"></textarea>
+    <button type="submit" id="convertButton" onclick="convert()">
+        Converter
+    </button>
+    <button type="button" id="clearButton" onclick="clearText()">
+        Limpar
+    </button>
+
+    <form id="switchArea">
+        <div class="switch">
+            <label for="uppercaseToggle">Converter para letra maiúscula</label>
+            <label class="switch">
+                <input type="checkbox" id="uppercaseToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="switch">
+            <label for="lowercaseToggle">Converter para letra minúscula</label>
+            <label class="switch">
+                <input type="checkbox" id="lowercaseToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="switch">
+            <label for="removeSpaceToggle">Remover Espaços</label>
+            <label class="switch">
+                <input type="checkbox" id="removeSpaceToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="switch">
+            <label for="removeSymbolsToggle">Remover Símbolos</label>
+            <label class="switch">
+                <input type="checkbox" id="removeSymbolsToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="switch">
+            <label for="removeLineBreakToggle">Remover quebra de linha</label>
+            <label class="switch">
+                <input type="checkbox" id="removeLineBreakToggle">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="switch">
+            <label for="removeLineBreakToggle">Formatar CNPJ</label>
+            <label class="switch">
+                <input type="checkbox" id="formatCNPJ">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="switch">
+            <label for="removeLineBreakToggle">Formatar CPF</label>
+            <label class="switch">
+                <input type="checkbox" id="formatCPF">
+                <span class="slider"></span>
+            </label>
+        </div>
+    </form>
+
+    <div id="outputText">
+        <h2>Texto Convertido:</h2>
+        <p id="convertedText"></p>
+        <div id="copyArea">
+            <button type="button" id="copyButton" onclick="copyText()">
+                Copiar Texto
+            </button>
+            <p id="copyResult"></p>
+        </div>
+    </div>
+
+    <div id="notificationContainer"></div>
+
+    <footer>
+        <h4>
+            Desenvolvido por Rafael Romera
+            <br>
+            Soften Sistemas
+            <br>
+            Versão: 3.0
+        </h4>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
