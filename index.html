@@ -14,12 +14,6 @@
     </header>
 
     <textarea name="userInput" id="textInput" placeholder="Digite o texto aqui"></textarea>
-    <button type="submit" id="convertButton" onclick="convert()">
-        Converter
-    </button>
-    <button type="button" id="clearButton" onclick="clearText()">
-        Limpar
-    </button>
 
     <form id="switchArea">
         <div class="switch">
@@ -79,11 +73,17 @@
         </div>
     </form>
 
+    <div id="mainBtns">
+        <button id="convertButton" onclick="convert()">Converter <i class="fa-solid fa-repeat"></i> </button>
+        <button id="clearButton" onclick="clearText()">Limpar <i class="fa-solid fa-trash"></i> </button>
+    </div>
+
     <div id="outputText">
         <h2>Texto Convertido:</h2>
         <p id="convertedText"></p>
         <div id="copyArea">
-            <button type="button" id="copyButton" onclick="copyText()">
+            <button id="copyButton" onclick="copyText()" >
+                <i class="fa-solid fa-copy"></i>
                 Copiar Texto
             </button>
             <p id="copyResult"></p>
