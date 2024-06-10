@@ -56,26 +56,41 @@ textarea:focus {
     border-color: #007bff;
     outline: none;
 }
-
-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+#copyButton{
+    display: inline;
     margin: calc(5px + 0.5vw);
     padding: calc(5px + 0.5vw) calc(10px + 1vw);
-    background: #007bff;
+    background: #047c40;
     color: #fff;
     border: none;
     border-radius: calc(2.5px + 0.5vw);
-    font-size: calc(0.75rem + 0.5vw);
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+#mainBtns button {
+    display: inline;
+    margin: calc(5px + 0.5vw);
+    padding: calc(5px + 0.5vw) calc(10px + 1vw);
+    background: #047c40;
+    color: #fff;
+    border: none;
+    border-radius: calc(2.5px + 0.5vw);
+    font-size: 20px;
     cursor: pointer;
     transition: background 0.3s;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-button:hover {
-    background: #0056b3;
-    box-shadow: 0px 0px 100px blue;
+#mainBtns button:hover {
+    background: #08df37;
+    box-shadow: 0px 0px 50px hsla(143, 89%, 45%, 0.548);
+}
+
+#copyButton:hover{
+    background: #08df37;
+    box-shadow: 0px 0px 50px hsla(143, 89%, 45%, 0.548);
 }
 
 form {
@@ -95,7 +110,7 @@ form {
     display: flex;
     align-items: center;
     width: 100%;
-    padding: calc(1px + 0.5vw);
+    padding: calc(1px + 0.3vw);
     justify-content: center; /* Center align the switches */
 }
 
@@ -114,10 +129,14 @@ form {
     display: inline-block;
     width: calc(20px + 2vw);
     height: calc(10px + 1vw);
-    background-color: #16295e;
+    background-color: #165e34a2;
     border-radius: calc(10px + 1vw);
     cursor: pointer;
     transition: background-color 0.4s;
+}
+
+.slider:hover{
+    box-shadow: 0px 0px 50px green;
 }
 
 .slider:before {
@@ -133,7 +152,7 @@ form {
 }
 
 input:checked + .slider {
-    background-color: #007bff;
+    background-color: #0f9748;
 }
 
 input:checked + .slider:before {
