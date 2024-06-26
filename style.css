@@ -86,11 +86,15 @@ textarea:focus {
 #mainBtns button:hover {
     background: #08df37;
     box-shadow: 0px 0px 50px hsla(143, 89%, 45%, 0.548);
+    transition: background 0.3s;
+    transform: scale(110%);
 }
 
 #copyButton:hover{
     background: #08df37;
     box-shadow: 0px 0px 50px hsla(143, 89%, 45%, 0.548);
+    transition: background 0.3s;
+    transform: scale(110%);
 }
 
 form {
@@ -218,7 +222,7 @@ footer h4 {
 }
 
 .notification {
-    background-color: #232c46;
+    background-color: #3959bb;
     color: #fff;
     padding: calc(5px + 1vw) calc(10px + 1vw);
     margin: calc(5px + 0.5vw) 0;
@@ -230,4 +234,15 @@ footer h4 {
 
 .notification.fade-out {
     opacity: 0;
+}
+
+#textInput:focus{
+    transform: scale(110%);
+}
+
+.switch:hover{
+    transform: scale(105%);
+    background-color: #2e2e2e;
+    cursor: pointer;
+    border-radius: 10px;
 }
