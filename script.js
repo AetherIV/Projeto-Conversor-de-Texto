@@ -12,30 +12,74 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add validation for conflicting checkboxes
     const uppercaseToggle = document.getElementById('uppercaseToggle');
     const lowercaseToggle = document.getElementById('lowercaseToggle');
+    const removeSpacesToggle = document.getElementById('removeSpaceToggle')
+    const removeSymbolsToggle = document.getElementById('removeSymbolsToggle');
+    const formatLineBreakToggle = document.getElementById('removeLineBreakToggle');
     const formatCNPJToggle = document.getElementById('formatCNPJ');
     const formatCPFToggle = document.getElementById('formatCPF');
+
+    const disableCPFandCNPJ = () => {
+        if (formatCNPJToggle.checked || formatCPFToggle.checked) {
+            formatCNPJToggle.checked = false;
+            formatCPFToggle.checked = false;
+        }
+    };
 
     uppercaseToggle.addEventListener('change', function() {
         if (this.checked) {
             lowercaseToggle.checked = false;
+            disableCPFandCNPJ();
         }
     });
 
     lowercaseToggle.addEventListener('change', function() {
         if (this.checked) {
             uppercaseToggle.checked = false;
+            disableCPFandCNPJ();
         }
     });
 
     formatCNPJToggle.addEventListener('change', function() {
         if (this.checked) {
             formatCPFToggle.checked = false;
+            // Disable all other format toggles except CPF
+            uppercaseToggle.checked = false;
+            lowercaseToggle.checked = false;
+            removeSpacesToggle.checked = false;
+            removeSymbolsToggle.checked = false;
+            formatLineBreakToggle.checked = false;
         }
     });
 
     formatCPFToggle.addEventListener('change', function() {
         if (this.checked) {
             formatCNPJToggle.checked = false;
+            // Disable all other format toggles except CNPJ
+            uppercaseToggle.checked = false;
+            lowercaseToggle.checked = false;
+            removeSpacesToggle.checked = false;
+            removeSymbolsToggle.checked = false;
+            formatLineBreakToggle.checked = false;
+        }
+    });
+    
+    removeSpacesToggle.addEventListener('change', function() {
+        if (this.checked) {
+            removeSymbolsToggle.checked = false;
+            disableCPFandCNPJ();
+        }
+    });
+
+    removeSymbolsToggle.addEventListener('change', function() {
+        if (this.checked) {
+            removeSpacesToggle.checked = false;
+            disableCPFandCNPJ();
+        }
+    });
+
+    formatLineBreakToggle.addEventListener('change', function() {
+        if (this.checked) {
+            disableCPFandCNPJ();
         }
     });
 });
